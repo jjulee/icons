@@ -1,6 +1,6 @@
-languageCode:           "en"
+languageCode:           "ko"
 title:                  "Bootstrap Icons"
-baseURL:                "https://icons.getbootstrap.com"
+baseURL:                "https://icons.getbootstrap.kr"
 enableInlineShortcodes: true
 enableRobotsTXT:        true
 metaDataFormat:         "yaml"
@@ -39,13 +39,13 @@ module:
       target:           static/font
 
 params:
-  description:          "Official open source SVG icon library for Bootstrap"
+  description:          "Bootstrap용 오픈 소스 SVG 아이콘 라이브러리"
   social_image_path:    /assets/img/bootstrap-icons-social.png
 
   version:              "1.2.1"
   bs_docs_version:      "5.0"
 
-  main:                 "https://getbootstrap.com"
+  main:                 "https://getbootstrap.kr"
   github_org:           "https://github.com/twbs"
   repo:                 "https://github.com/twbs/icons"
   twitter:              "getbootstrap"
