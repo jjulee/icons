@@ -1,15 +1,15 @@
 ---
 ---
 
-## Install
+## 설치
 
-Bootstrap Icons are published to npm, but they can also be manually downloaded if needed.
+Bootstrap 아이콘은 npm 에 공개되어 있으며, 필요에 따라 수동으로 다운로드 할 수도 있습니다.
 
 <div class="row my-4">
   <div class="col-md-6">
 {{< md >}}
 ### npm
-Install Bootstrap Icons via command line with npm.
+명령줄에 npm 으로 Bootstrap Icons 를 설치합니다.
 
 {{< highlight sh >}}
 npm i bootstrap-icons
@@ -19,22 +19,22 @@ npm i bootstrap-icons
   <div class="col-md-6">
 {{< md >}}
 ### Download
-[All releases are published on GitHub](https://github.com/twbs/icons/releases/) and include icon SVGs, license, and readme. Our `package.json` is also included, though our npm scripts are primarily available for our development workflows.
+[모든 릴리즈는 GitHub 상에 공개](https://github.com/twbs/icons/releases/)되며 아이콘인 SVG, 라이센스, readme 가 포함되어 있습니다. `package.json` 도 포함되어 있지만, npm 스크립트는 주로 우리의 개발 워크플로우에서 이용할 수 있습니다. 
 
-<a class="btn btn-outline-primary" href="https://github.com/twbs/icons/releases/latest/">Download latest ZIP</a>
+<a class="btn btn-outline-primary" href="https://github.com/twbs/icons/releases/latest/">최신 ZIP 파일 다운로드</a>
 {{< /md >}}
   </div>
 </div>
 
-## Usage
+## 사용방법
 
-Bootstrap Icons are SVGs, so you can include them into your HTML in a few ways depending on how your project is setup. Bootstrap Icons include a `width` and `height` of `1em` by default to allow for easy resizing via `font-size`.
+Bootstrap 아이콘은 SVG 이기 때문에 프로젝트가 어떻게 설정되어 있는지에 따라 여러가지 방법으로 HTML 에 포함시킬 수 있습니다. Bootstrap 아이콘은 기본 `width` 와 `height` 가 `1em` 으로 되어 있어서 `font-size` 를 사용해 간단하게 크기를 변경할 수 있습니다.
 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
 ### Embedded
-Embed your icons within the HTML of your page (as opposed to an external image file). Here we've used a custom `width` and `height`.
+아이콘을 (외부 이미지 파일이 아닌)페이지의 HTML 에 넣습니다. 여기에서는 커스텀 `width` 와 `height` 를 사용하고 있습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -46,7 +46,7 @@ Embed your icons within the HTML of your page (as opposed to an external image f
   <div class="col-md-4">
 {{< md >}}
 ### Sprite
-Use the SVG sprite to insert any icon through the `<use>` element. Use the icon's filename as the fragment identifier (e.g., `toggles` is `#toggles`). SVG sprites allow you to reference an external file similar to an `<img>` element, but with the power of `currentColor` for easy theming.
+SVG sprite 를 사용해 `<use>` 요소로부터 임의의 아이콘을 삽입합니다. Fragment 식별자로는 아이콘의 파일명을 사용합니다(예를 들어, `toggles` 는 `#toggles` 가 됩니다). SVG sprites 에서는 `<img>` 요소와 마찬가지로 외부 파일을 참조할 수 있지만, `currentColor` 를 이용해 간단하게 테마를 설정할 수 있습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -68,7 +68,7 @@ Use the SVG sprite to insert any icon through the `<use>` element. Use the icon'
   <div class="col-md-4">
 {{< md >}}
 ### External image
-Copy the Bootstrap icons SVGs to your directory of choice and reference them like normal images with the `<img>` element.
+Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 요소로 보통의 이미지와 같이 사용합니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -80,9 +80,9 @@ Copy the Bootstrap icons SVGs to your directory of choice and reference them lik
   <div class="col-md-4">
 {{< md >}}
 ### Icon font
-Icon fonts with classes for every icon are also included for Bootstrap Icons. Include the icon web fonts in your page via CSS, then reference the class names as needed in your HTML (e.g., `<i class="bi-alarm-clock"></i>`).
+각 아이콘의 클래스를 가진 아이콘 폰트도 Bootstrap 아이콘에 포함되어 있습니다. CSS 를 통해 페이지내에 아이콘 웹 폰트를 넣어 필요에 따라 HTML 내에서 클래스를 사용합니다. (예를 들어, `<i class="bi-alarm-clock"></i>`).
 
-Use `font-size` and `color` to change the icon appearance.
+아이콘의 외형을 변경하기 위해서는 `font-size` 와 `color` 를 사용합니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -95,9 +95,9 @@ Use `font-size` and `color` to change the icon appearance.
   <div class="col-md-4">
 {{< md >}}
 ### CSS
-You can also use the SVG within your CSS (**be sure to escape any characters**, such as `#` to `%23` when specifying hex color values). When no dimensions are specified via `width` and `height` on the `<svg>`, the icon will fill the available space.
+또한, CSS 내에서 SVG 를 사용할 수도 있습니다(16진수의 컬러값을 지정할 경우에는, `#` 에서 `%23` 과 같이 **문자에서 벗어날 할 필요**가 있습니다). `<svg>` 의 `width` 와 `height` 로 사이즈가 지정되어 있지 않은 경우, 아이콘은 이용 가능한 공간을 모두 채웁니다.
 
-The `viewBox` attribute is required if you wish to resize icons with `background-size`. Note that the `xmlns` attribute is required.
+아이콘의 크기를 `background-size` 로 변경하려면, `viewBox` 속성이 필요합니다. `xmlns` 속성은 필수입니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -117,8 +117,9 @@ The `viewBox` attribute is required if you wish to resize icons with `background
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-## Styling
-Color can be changed by setting a `.text-*` class or custom CSS:
+
+## 스타일
+색상 변경은 `.text-*` 클래스나 커스텀 CSS 로 가능합니다:
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -141,22 +142,22 @@ Color can be changed by setting a `.text-*` class or custom CSS:
   <div class="col-md-4">
 {{< md >}}
 ## Working with SVGs
-SVGs are awesome to work with, but they do have some known quirks to work around. Given the numerous ways in which SVGs can be used, we haven't included these attributes and workarounds in our code.
+SVG 를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 남아 있습니다. SVG 의 사용방법이 몇 가지 있다는 점을 고려해 이 속성과 해결책을 코드에는 포함시키지 않았습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
 {{< md >}}
-Known issues include:
+기존의 문제는 다음과 같습니다:
 
-- **Focus handling is broken in Internet Explorer and Edge Legacy.** When embedding your SVGs, add `focusable="false"` to the `<svg>` element. [Learn more on Stack Overflow.](https://stackoverflow.com/questions/18646111/disable-onfocus-event-for-svg-element)
+- **Internet Explorer 와 Edge Legacy 에서는 포커스 처리가 깨져 있습니다.** SVG 를 포함시키는 경우에는, `<svg>` 요소에 `focusable="false"` 를 추가해 주세요. [자세히 보기](https://stackoverflow.com/questions/18646111/disable-onfocus-event-for-svg-element)
 
-- **Browsers inconsistently announce SVGs as `<img>` tags with voice assistance.** Include `role="img"` when possible to avoid any issues. [See this article for details.](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-2)
+- **브라우저는 SVG 를 음성 지원이 가능한 `<img>` 태그로 일관되게 안내하지 않습니다.** 문제를 해결하기 위해서는 가능한 한 `role="img"` 를 포함시켜 주십시오. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-2)
 
-- **Safari skips `aria-label` when used non-focusable SVGs.** As such, use `aria-hidden="true"` when embedding the `<svg>` file and use CSS to visually hide an equivalent label. [More details here.](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-6)
+- **Safari 는 포커스가 없는 SVG 를 사용한 경우, `aria-label` 을 무시합니다.** 그러므로, `<svg>` 파일을 넣을 때는 `aria-hidden="true"` 를 사용하고, CSS 를 사용하여 동등한 라벨을 시각적으로 숨겨 주십시오. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-6)
 
-- **External SVG sprites may not function correctly in Internet Explorer.** Use the [svg4everybody](https://github.com/jonathantneal/svg4everybody) polyfill as needed.
+- **Internet Explorer 에서는 외부 SVG sprite 가 제대로 작동하지 않을 수 있습니다.** 필요에 따라 [svg4everybody](https://github.com/jonathantneal/svg4everybody) 폴리필(polyfill)을 사용해 주세요.
 
-Found another issue with SVGs we should note? Please open an issue to share details.
+SVG 와 관련된 다른 문제를 발견하셨나요? 세부사항이 공유될 수 있도록 Issue 를 만들어 주세요.
 {{< /md >}}
   </div>
 </div>
