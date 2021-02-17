@@ -4,6 +4,9 @@
   new List('icons-body', {
     valueNames: ['name', { data: ['tags'] }]
   });
+  document.getElementById('search').addEventListener('blur', (event) => {
+    ga('send', 'event', 'Icon', 'filter', event.target.value)
+  })
 </script>
 {{- end }}
 
