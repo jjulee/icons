@@ -9,7 +9,7 @@ Bootstrap 아이콘은 npm 에 공개되어 있으며, 필요에 따라 수동�
   <div class="col-md-4">
 {{< md >}}
 ### npm
-npm으로 SVG, 아이콘 sprite, 그리고 아이콘 폰트가 퐇마된 [Bootstrap Icons](https://www.npmjs.com/package/bootstrap-icons)를 설치하세요. 그리고 [사용법](#usage)에서 아이콘을 포함하는 방법에 대해 알아보고 선택하세요.
+npm으로 SVG, 아이콘 sprite, 그리고 아이콘 폰트가 퐇마된 [Bootstrap Icons](https://www.npmjs.com/package/bootstrap-icons)를 설치하세요. 그리고 [사용방법](#사용방법)에서 아이콘을 포함하는 방법에 대해 알아보고 선택하세요.
 
 {{< highlight sh >}}
 npm i bootstrap-icons
@@ -27,7 +27,7 @@ npm i bootstrap-icons
   <div class="col-md-4">
 {{< md >}}
 ### CDN
-Include the icon fonts stylesheet—in your website `<head>` or via `@import` in CSS—from our CDN and get started in seconds. [See icon font docs](#icon-font) for examples.
+웹사이트의 `<head>` 또는 CSS 내에  `@import`를 사용해서 아이콘 폰트 스타일시트를 CDN으로부터 불러오도록 한 후 바로 시작하세요. [아이콘 폰트 문서](#icon-font)에서 예시를 확인해주세요.
 
 {{< highlight html >}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@{{< param version >}}/font/bootstrap-icons.css">
@@ -158,8 +158,8 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-## Accessibility
-If the icons are not purely decorative, make sure you provide an appropriate text alternative. Depending on which method you're using to add the icons, and where you're using them (e.g. as standalone images, or as the only content of a button or similar control), there are various possible approaches. Here are a few examples:
+## 접근성
+아이콘을 장식용으로만 쓰는 게 아니라면 적절한 대체 텍스트를 제공해야 합니다. 아이콘을 추가할 때 사용한 방법과 아이콘을 사용하는 위치 (예: 독립 이미지 또는 버튼 또는 유사한 컨트롤의 유일한 컨텐츠)에 따라 다양한 방법이 있습니다. 다음은 몇 가지 예시입니다:
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -205,21 +205,21 @@ If the icons are not purely decorative, make sure you provide an appropriate tex
   <div class="col-md-4">
 {{< md >}}
 ## Working with SVGs
-SVG 를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 남아 있습니다. SVG 의 사용방법이 몇 가지 있다는 점을 고려해 이 속성과 해결책을 코드에는 포함시키지 않았습니다.
+SVG를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 남아 있습니다. SVG의 사용방법이 몇 가지 있다는 점을 고려해 이 속성과 해결책을 코드에는 포함시키지 않았습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
 {{< md >}}
 기존의 문제는 다음과 같습니다:
 
-- **Internet Explorer 와 Edge Legacy 에서는 포커스 처리가 깨져 있습니다.** SVG 를 포함시키는 경우에는, `<svg>` 요소에 `focusable="false"` 를 추가해 주세요. [자세히 보기](https://stackoverflow.com/questions/18646111/disable-onfocus-event-for-svg-element)
+- **Internet Explorer와 Edge Legacy에서는 포커스 처리가 깨져 있습니다.** SVG 를 포함시키는 경우에는, `<svg>` 요소에 `focusable="false"`를 추가해 주세요. [자세히 보기](https://stackoverflow.com/questions/18646111/disable-onfocus-event-for-svg-element)
 
-- **브라우저는 SVG 를 음성 지원이 가능한 `<img>` 태그로 일관되게 안내하지 않습니다.** 문제를 해결하기 위해서는 가능한 한 `role="img"` 를 포함시켜 주십시오. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-2)
+- **브라우저는 SVG를 음성 지원이 가능한 `<img>` 태그로 일관되게 안내하지 않습니다.** 문제를 해결하기 위해서는 가능한 한 `role="img"`를 포함시켜 주세요. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-2)
 
-- **Internet Explorer 에서는 외부 SVG sprite가 제대로 작동하지 않을 수 있습니다.** 필요에 따라 [svg4everybody](https://github.com/jonathantneal/svg4everybody) 폴리필(polyfill)을 사용해 주세요.
+- **Internet Explorer에서는 외부 SVG sprite가 제대로 작동하지 않을 수 있습니다.** 필요에 따라 [svg4everybody](https://github.com/jonathantneal/svg4everybody) 폴리필(polyfill)을 사용해 주세요.
 
 
-SVG 와 관련된 다른 문제를 발견하셨나요? 세부사항이 공유될 수 있도록 [Issue]({{< param repo >}}/issues)를 만들어 주세요.
+SVG와 관련된 다른 문제를 발견하셨나요? 세부사항이 공유될 수 있도록 [Issue]({{< param repo >}}/issues)를 만들어 주세요.
 {{< /md >}}
   </div>
 </div>
