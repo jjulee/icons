@@ -1,0 +1,43 @@
+<div class="hero py-5 text-center text-lg-start">
+  <div class="container">
+    <div class="row flex-lg-row-reverse">
+      <div class="col-6 mx-auto col-lg-5 mx-lg-0">
+        <img srcset="/assets/img/icons-hero.png, /assets/img/icons-hero@2x.png 2x"
+             src="/assets/img/icons-hero.png"
+             class="img-fluid my-3 mx-auto"
+             alt="Bootstrap Icons" width="450" height="340">
+      </div>
+      <div class="col-lg-7">
+        <a class="d-block d-sm-inline-block py-1 px-3 mb-4 text-dark text-decoration-none rounded-3 hero-notice" href="{{ .Site.Params.blog }}/2021/02/22/bootstrap-icons-1-4-0/">
+          <strong>New in v1.4.0:</strong> 60+ weather icons!
+        </a>
+        <h1 class="f0">Bootstrap Icons</h1>
+        <p class="mb-4 f3 font-weight-normal">자유롭고 고품질의 오픈소스 아이콘 라이브러리로 1,200여개의 아이콘이 있습니다. SVG, SVG sprite, 혹은 웹 폰트 등 원하는 대로 사용하십시오. 어떤 프로젝트든 <a href="{{ .Site.Params.main }}/">Bootstrap</a> 의 사용과 상관없이 사용할 수 있습니다.</p>
+
+        <div class="fs-5 d-inline-block mb-3">
+          {{ highlight "npm i bootstrap-icons" "sh" "" }}
+        </div>
+
+        {{ partialCached "ads" . }}
+
+        <hr class="mx-auto mx-lg-0 my-5">
+
+        <p class="text-muted">
+          Currently <a href="{{ .Site.Params.repo }}/releases/tag/v{{ .Site.Params.version }}">v{{ .Site.Params.version }}</a>
+          <span class="px-1">&#8226;</span>
+          <a href="#아이콘">아이콘</a>
+          <span class="px-1">&#8226;</span>
+          <a href="#설치">설치</a>
+          <span class="px-1">&#8226;</span>
+          <a href="#사용방법">사용방법</a>
+          <span class="px-1">&#8226;</span>
+          <a href="#스타일">스타일</a>
+          <span class="px-1">&#8226;</span>
+          <a href="#accessibility">접근성</a>
+          <span class="px-1">&#8226;</span>
+          <a href="{{ .Site.Params.repo }}">GitHub 저장소</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

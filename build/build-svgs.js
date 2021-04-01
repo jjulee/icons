@@ -6,10 +6,11 @@ const fs = require('fs').promises
 const path = require('path')
 const chalk = require('chalk')
 const cheerio = require('cheerio')
-const SVGO = require('svgo')
-const yaml = require('js-yaml')
+const { loadConfig, optimize } = require('svgo')
 
 const iconsDir = path.join(__dirname, '../icons/')
+
+const VERBOSE = process.argv.includes('--verbose')
 
 const svgAttributes = {
   xmlns: 'http://www.w3.org/2000/svg',
@@ -20,67 +21,64 @@ const svgAttributes = {
   viewBox: '0 0 16 16'
 }
 
-const getSvgoConfig = async () => {
-  try {
-    let svgoConfig = await fs.readFile(path.join(__dirname, '../svgo.yml'), 'utf8')
+async function processFile(file, config) {
+  const filepath = path.join(iconsDir, file)
+  const basename = path.basename(file, '.svg')
 
-    svgoConfig = await yaml.safeLoad(svgoConfig)
+  const originalSvg = await fs.readFile(filepath, 'utf8')
+  const optimizedSvg = await optimize(originalSvg, {
+    path: filepath,
+    ...config
+  })
 
-    return svgoConfig
-  } catch (error) {
-    console.error('Couldn\'t read SVGO\'s config!')
-    console.error(error)
-    process.exit(1)
+  const $ = await cheerio.load(optimizedSvg.data, {
+    xml: {
+      xmlMode: true
+    }
+  })
+  const $svgElement = $('svg')
+
+  // We keep all SVG contents apart from the `<svg>` element.
+  // `$(this)` refers to the original object not the replaced one!
+  $svgElement.replaceWith($('<svg>').append($(this).html()))
+
+  // Then we set the `svgAttributes` in the order we want to,
+  // hence why we remove the attributes and add them back
+  for (const [attribute, value] of Object.entries(svgAttributes)) {
+    $svgElement.removeAttr(attribute)
+    $svgElement.attr(attribute, attribute === 'class' ? `bi bi-${basename}` : value)
+  }
+
+  const resultSvg = $svgElement.toString().replace(/\r\n?/g, '\n')
+
+  if (resultSvg !== originalSvg) {
+    await fs.writeFile(filepath, resultSvg, 'utf8')
+  }
+
+  if (VERBOSE) {
+    console.log(`- ${basename}`)
   }
 }
 
-const processFile = (file, config) => new Promise((resolve, reject) => {
-  file = path.join(iconsDir, file)
+(async () => {
+  try {
+    const basename = path.basename(__filename)
+    const timeLabel = chalk.cyan(`[${basename}] finished`)
 
-  fs.readFile(file, 'utf8')
-    .then(data => {
-      const svgo = new SVGO(config)
+    console.log(chalk.cyan(`[${basename}] started`))
+    console.time(timeLabel)
 
-      svgo.optimize(data)
-        .then(result => {
-          const $ = cheerio.load(result.data)
-          const svg = $('svg')
+    const files = await fs.readdir(iconsDir)
+    const config = await loadConfig(path.join(__dirname, '../svgo.config.js'))
 
-          svg.replaceWith(() => $('<svg>').append($(this).html()))
+    await Promise.all(files.map(file => processFile(file, config)))
 
-          for (const [attr, val] of Object.entries(svgAttributes)) {
-            $(svg).removeAttr(attr)
-            $(svg).attr(attr, val)
-          }
+    const filesLength = files.length
 
-          $(svg).attr('class', `bi bi-${path.basename(file, '.svg')}`)
-
-          fs.writeFile(file, $(svg).toString(), 'utf8')
-            .then(() => {
-              console.log(`- ${path.basename(file, '.svg')}`)
-              resolve()
-            })
-            .catch(error => reject(error))
-        })
-        .catch(error => reject(error))
-    })
-    .catch(error => reject(error))
-})
-
-const main = async () => {
-  const basename = path.basename(__filename)
-  const timeLabel = chalk.cyan(`[${basename}] finished`)
-
-  console.log(chalk.cyan(`[${basename}] started`))
-  console.time(timeLabel)
-
-  const files = await fs.readdir(iconsDir)
-  const config = await getSvgoConfig()
-
-  await Promise.all(files.map(file => processFile(file, config)))
-
-  console.log(chalk.green(`\nSuccess, ${files.length} icons prepped!`))
-  console.timeEnd(timeLabel)
-}
-
-main()
+    console.log(chalk.green('\nSuccess, %s icon%s prepared!'), filesLength, filesLength !== 1 ? 's' : '')
+    console.timeEnd(timeLabel)
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+})()

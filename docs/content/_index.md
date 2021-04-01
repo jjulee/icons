@@ -6,22 +6,36 @@
 Bootstrap 아이콘은 npm 에 공개되어 있으며, 필요에 따라 수동으로 다운로드 할 수도 있습니다.
 
 <div class="row my-4">
-  <div class="col-md-6">
+  <div class="col-md-4">
 {{< md >}}
 ### npm
-명령줄에 npm 으로 Bootstrap Icons 를 설치합니다.
+npm으로 SVG, 아이콘 sprite, 그리고 아이콘 폰트가 퐇마된 [Bootstrap Icons](https://www.npmjs.com/package/bootstrap-icons)를 설치하세요. 그리고 [사용법](#usage)에서 아이콘을 포함하는 방법에 대해 알아보고 선택하세요.
 
 {{< highlight sh >}}
 npm i bootstrap-icons
 {{< /highlight >}}
 {{< /md >}}
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
 {{< md >}}
 ### 다운로드
-[모든 릴리즈는 GitHub 상에 공개](https://github.com/twbs/icons/releases/)되며 아이콘인 SVG, 라이센스, readme 가 포함되어 있습니다. `package.json` 도 포함되어 있지만, npm 스크립트는 주로 우리의 개발 워크플로우에서 이용할 수 있습니다. 
+[모든 릴리즈는 GitHub 상에 공개](https://github.com/twbs/icons/releases/)되며 아이콘인 SVG, 폰트, 라이선스, readme가 포함되어 있습니다. `package.json` 도 포함되어 있지만, npm 스크립트는 주로 우리의 개발 워크플로우에서 이용할 수 있습니다.
 
 <a class="btn btn-outline-primary" href="https://github.com/twbs/icons/releases/latest/">최신 ZIP 파일 다운로드</a>
+{{< /md >}}
+  </div>
+  <div class="col-md-4">
+{{< md >}}
+### CDN
+Include the icon fonts stylesheet—in your website `<head>` or via `@import` in CSS—from our CDN and get started in seconds. [See icon font docs](#icon-font) for examples.
+
+{{< highlight html >}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@{{< param version >}}/font/bootstrap-icons.css">
+{{< /highlight >}}
+
+{{< highlight css >}}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@{{< param version >}}/font/bootstrap-icons.css");
+{{< /highlight >}}
 {{< /md >}}
   </div>
 </div>
@@ -38,7 +52,7 @@ Bootstrap 아이콘은 SVG 이기 때문에 프로젝트가 어떻게 설정되�
 {{< /md >}}
   </div>
   <div class="col-md-8">
-    {{< example >}}<svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"/></svg>{{< /example >}}
+    {{< example >}}<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg>{{< /example >}}
   </div>
 </div>
 
@@ -47,6 +61,8 @@ Bootstrap 아이콘은 SVG 이기 때문에 프로젝트가 어떻게 설정되�
 {{< md >}}
 ### Sprite
 SVG sprite 를 사용해 `<use>` 요소로부터 임의의 아이콘을 삽입합니다. Fragment 식별자로는 아이콘의 파일명을 사용합니다(예를 들어, `toggles` 는 `#toggles` 가 됩니다). SVG sprites 에서는 `<img>` 요소와 마찬가지로 외부 파일을 참조할 수 있지만, `currentColor` 를 이용해 간단하게 테마를 설정할 수 있습니다.
+
+**주의!** 현재 Chrome에서 [`<use>`가 도메인 간에서 작동되지 않는](https://bugs.chromium.org/p/chromium/issues/detail?id=470601) 문제가 있습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -72,7 +88,7 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 {{< /md >}}
   </div>
   <div class="col-md-8">
-    {{< example >}}<img src="/assets/img/bootstrap.svg" alt="" width="32" height="32" title="Bootstrap">{{< /example >}}
+    {{< example >}}<img src="/assets/img/bootstrap.svg" alt="Bootstrap" width="32" height="32">{{< /example >}}
   </div>
 </div>
 
@@ -105,6 +121,7 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 .bi::before {
   display: inline-block;
   content: "";
+  vertical-align: -.125em;
   background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
   background-repeat: no-repeat;
   background-size: 1rem 1rem;
@@ -141,6 +158,52 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
+## Accessibility
+If the icons are not purely decorative, make sure you provide an appropriate text alternative. Depending on which method you're using to add the icons, and where you're using them (e.g. as standalone images, or as the only content of a button or similar control), there are various possible approaches. Here are a few examples:
+{{< /md >}}
+  </div>
+  <div class="col-md-8">
+    <div class="bd-example">
+      <img src="/assets/img/bootstrap.svg" alt="Bootstrap" width="32" height="32">
+    </div>
+{{< highlight html >}}
+<!-- alt="..." on <img> element -->
+<img src="/assets/img/bootstrap.svg" alt="Bootstrap" ...>
+{{< /highlight >}}
+    <div class="bd-example">
+      <i class="bi-github" role="img" style="font-size: 2em" aria-label="GitHub"></i>
+    </div>
+{{< highlight html >}}
+<i class="bi-github" role="img" aria-label="GitHub"></i>
+{{< /highlight >}}
+    <div class="bd-example">
+      <svg class="bi" width="32" height="32" fill="currentColor" role="img" aria-label="Tools">
+        <use xlink:href="bootstrap-icons.svg#tools"/>
+      </svg>
+    </div>
+{{< highlight html >}}
+<svg class="bi" ... role="img" aria-label="Tools">
+  <use xlink:href="bootstrap-icons.svg#tools"/>
+</svg>
+{{< /highlight >}}
+    <div class="bd-example">
+      <button type="button" class="btn btn-primary" aria-label="Mute">
+        <svg class="bi bi-volume-mute-fill" width="32" height="32" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.717 3.55A.5.5 0 017 4v8a.5.5 0 01-.812.39L3.825 10.5H1.5A.5.5 0 011 10V6a.5.5 0 01.5-.5h2.325l2.363-1.89a.5.5 0 01.529-.06zm7.137 2.096a.5.5 0 010 .708L12.207 8l1.647 1.646a.5.5 0 01-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 01-.708-.708L10.793 8 9.146 6.354a.5.5 0 11.708-.708L11.5 7.293l1.646-1.647a.5.5 0 01.708 0z"></path></svg>
+      </button>
+    </div>
+{{< highlight html >}}
+<!-- aria-label="..." on the control -->
+<button ... aria-label="Mute">
+  <svg class="bi bi-volume-mute-fill" ...>
+  ...
+</svg>
+{{< /highlight >}}
+  </div>
+</div>
+
+<div class="row my-4">
+  <div class="col-md-4">
+{{< md >}}
 ## Working with SVGs
 SVG 를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 남아 있습니다. SVG 의 사용방법이 몇 가지 있다는 점을 고려해 이 속성과 해결책을 코드에는 포함시키지 않았습니다.
 {{< /md >}}
@@ -153,11 +216,10 @@ SVG 를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 �
 
 - **브라우저는 SVG 를 음성 지원이 가능한 `<img>` 태그로 일관되게 안내하지 않습니다.** 문제를 해결하기 위해서는 가능한 한 `role="img"` 를 포함시켜 주십시오. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-2)
 
-- **Safari 는 포커스가 없는 SVG 를 사용한 경우, `aria-label` 을 무시합니다.** 그러므로, `<svg>` 파일을 넣을 때는 `aria-hidden="true"` 를 사용하고, CSS 를 사용하여 동등한 라벨을 시각적으로 숨겨 주십시오. [자세히 보기](https://simplyaccessible.com/article/7-solutions-svgs/#acc-heading-6)
+- **Internet Explorer 에서는 외부 SVG sprite가 제대로 작동하지 않을 수 있습니다.** 필요에 따라 [svg4everybody](https://github.com/jonathantneal/svg4everybody) 폴리필(polyfill)을 사용해 주세요.
 
-- **Internet Explorer 에서는 외부 SVG sprite 가 제대로 작동하지 않을 수 있습니다.** 필요에 따라 [svg4everybody](https://github.com/jonathantneal/svg4everybody) 폴리필(polyfill)을 사용해 주세요.
 
-SVG 와 관련된 다른 문제를 발견하셨나요? 세부사항이 공유될 수 있도록 Issue 를 만들어 주세요.
+SVG 와 관련된 다른 문제를 발견하셨나요? 세부사항이 공유될 수 있도록 [Issue]({{< param repo >}}/issues)를 만들어 주세요.
 {{< /md >}}
   </div>
 </div>
