@@ -18,7 +18,7 @@ npm i bootstrap-icons
   </div>
   <div class="col-md-6">
 {{< md >}}
-### Download
+### 다운로드
 [모든 릴리즈는 GitHub 상에 공개](https://github.com/twbs/icons/releases/)되며 아이콘인 SVG, 라이센스, readme 가 포함되어 있습니다. `package.json` 도 포함되어 있지만, npm 스크립트는 주로 우리의 개발 워크플로우에서 이용할 수 있습니다. 
 
 <a class="btn btn-outline-primary" href="https://github.com/twbs/icons/releases/latest/">최신 ZIP 파일 다운로드</a>

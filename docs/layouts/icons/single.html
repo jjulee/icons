@@ -10,7 +10,7 @@
     <main class="container icon-examples" id="content" role="main">
       <nav>
         <ul class="breadcrumb my-4 text-muted bg-transparent p-0">
-          <li class="breadcrumb-item"><a href="/">Icons</a></li>
+          <li class="breadcrumb-item"><a href="/">아이콘</a></li>
           <li class="breadcrumb-item">{{ .Title }}</li>
         </ul>
       </nav>
@@ -18,7 +18,7 @@
       <div class="row align-items-md-center">
         <div class="col-md-6 col-lg-8">
           <h1>{{ .Title }}</h1>
-          <p class="mb-3 mb-md-0"><strong>Tags:</strong> {{ with .Params.tags }}{{ delimit . ", " }}{{ end }}</p>
+          <p class="mb-3 mb-md-0"><strong>태그 :</strong> {{ with .Params.tags }}{{ delimit . ", " }}{{ end }}</p>
         </div>
       </div>
 
@@ -72,20 +72,20 @@
           </div>
         </div>
         <div class="col-lg-4 mb-4">
-          <h2 class="fs-3">Download</h2>
-          <p>Right click and save as to download the SVG.</p>
+          <h2 class="fs-3">다운로드</h2>
+          <p>우클릭과 SVG 를 다운로드 해 저장할 수 있습니다.</p>
           <a href='{{ printf "/%s/%s.svg" "icons" .File.TranslationBaseName }}' class="btn btn-bd-primary mb-4">Download SVG</a>
 
-          <h2 class="fs-3">Icon font</h2>
-          <p>Using the web font? Copy, paste, and go.</p>
+          <h2 class="fs-3">아이콘 폰트</h2>
+          <p>웹 폰트를 사용하려면, 복사 붙혀넣기를 해 주세요.</p>
 
           {{ $iconFontSnippet := partial "font-snippet.html" (dict "context" . "name" .File.TranslationBaseName) }}
           <div class="mb-4">
             {{ highlight $iconFontSnippet "html" "" }}
           </div>
 
-          <h2 class="fs-3">Copy HTML</h2>
-          <p>Paste the SVG right into your project's code.</p>
+          <h2 class="fs-3">HTML 복사</h2>
+          <p>SVG 를 프로젝트의 코드에 직접 붙혀 넣을 수 있습니다.</p>
 
           <div id="copy-error-callout" class="alert alert-info d-none" role="alert"></div>
 
