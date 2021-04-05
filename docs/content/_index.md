@@ -3,13 +3,13 @@
 
 ## 설치
 
-Bootstrap 아이콘은 npm 에 공개되어 있으며, 필요에 따라 수동으로 다운로드 할 수도 있습니다.
+Bootstrap Icons는 npm 에 공개되어 있으며, 필요에 따라 수동으로 다운로드 할 수도 있습니다.
 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
 ### npm
-npm으로 SVG, 아이콘 sprite, 그리고 아이콘 폰트가 퐇마된 [Bootstrap Icons](https://www.npmjs.com/package/bootstrap-icons)를 설치하세요. 그리고 [사용방법](#사용방법)에서 아이콘을 포함하는 방법에 대해 알아보고 선택하세요.
+npm으로 SVG, 아이콘 sprite, 그리고 아이콘 폰트가 포함된 [Bootstrap Icons](https://www.npmjs.com/package/bootstrap-icons)를 설치하세요. 그리고 [사용방법](#사용방법)에서 아이콘을 포함하는 방법에 대해 알아보고 선택하세요.
 
 {{< highlight sh >}}
 npm i bootstrap-icons
@@ -42,13 +42,13 @@ npm i bootstrap-icons
 
 ## 사용방법
 
-Bootstrap 아이콘은 SVG 이기 때문에 프로젝트가 어떻게 설정되어 있는지에 따라 여러가지 방법으로 HTML 에 포함시킬 수 있습니다. Bootstrap 아이콘은 기본 `width` 와 `height` 가 `1em` 으로 되어 있어서 `font-size` 를 사용해 간단하게 크기를 변경할 수 있습니다.
+Bootstrap Icons는 SVG이기 때문에 프로젝트가 어떻게 설정되어 있는지에 따라 여러가지 방법으로 HTML 에 포함시킬 수 있습니다. Bootstrap Icons는 기본 `width`와 `height`가 `1em`으로 되어 있어서 `font-size`를 사용해 간단하게 크기를 변경할 수 있습니다.
 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-### Embedded
-아이콘을 (외부 이미지 파일이 아닌)페이지의 HTML 에 넣습니다. 여기에서는 커스텀 `width` 와 `height` 를 사용하고 있습니다.
+### 임베드
+아이콘을 (외부 이미지 파일이 아닌) 페이지의 HTML 에 넣습니다. 여기에서는 커스텀 `width`와 `height`를 사용하고 있습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -60,9 +60,9 @@ Bootstrap 아이콘은 SVG 이기 때문에 프로젝트가 어떻게 설정되�
   <div class="col-md-4">
 {{< md >}}
 ### Sprite
-SVG sprite 를 사용해 `<use>` 요소로부터 임의의 아이콘을 삽입합니다. Fragment 식별자로는 아이콘의 파일명을 사용합니다(예를 들어, `toggles` 는 `#toggles` 가 됩니다). SVG sprites 에서는 `<img>` 요소와 마찬가지로 외부 파일을 참조할 수 있지만, `currentColor` 를 이용해 간단하게 테마를 설정할 수 있습니다.
+SVG sprite를 사용해 `<use>` 요소로부터 임의의 아이콘을 삽입합니다. Fragment 식별자로는 아이콘의 파일명을 사용합니다(예를 들어, `toggles`는 `#toggles`가 됩니다). SVG sprites 에서는 `<img>` 요소와 마찬가지로 외부 파일을 참조할 수 있지만, `currentColor`를 이용해 간단하게 테마를 설정할 수 있습니다.
 
-**주의!** 현재 Chrome에서 [`<use>`가 도메인 간에서 작동되지 않는](https://bugs.chromium.org/p/chromium/issues/detail?id=470601) 문제가 있습니다.
+**주의!** 현재 Chrome에서 [`<use>`가 도메인 간에서 작동하지 않는](https://bugs.chromium.org/p/chromium/issues/detail?id=470601) 문제가 있습니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -83,8 +83,8 @@ SVG sprite 를 사용해 `<use>` 요소로부터 임의의 아이콘을 삽입�
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-### External image
-Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 요소로 보통의 이미지와 같이 사용합니다.
+### 외부 이미지
+Bootstrap Icons의 SVG를 임의의 디렉토리로 복사해 넣어, `<img>` 요소로 보통의 이미지와 같이 사용합니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -95,8 +95,8 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-### Icon font
-각 아이콘의 클래스를 가진 아이콘 폰트도 Bootstrap 아이콘에 포함되어 있습니다. CSS 를 통해 페이지내에 아이콘 웹 폰트를 넣어 필요에 따라 HTML 내에서 클래스를 사용합니다. (예를 들어, `<i class="bi-alarm-clock"></i>`).
+### 아이콘 폰트
+각 아이콘의 클래스를 가진 아이콘 폰트도 Bootstrap Icons에 포함되어 있습니다. CSS 를 통해 페이지내에 아이콘 웹 폰트를 넣어 필요에 따라 HTML 내에서 클래스를 사용합니다. (예를 들어, `<i class="bi-alarm-clock"></i>`).
 
 아이콘의 외형을 변경하기 위해서는 `font-size` 와 `color` 를 사용합니다.
 {{< /md >}}
@@ -111,9 +111,9 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
   <div class="col-md-4">
 {{< md >}}
 ### CSS
-또한, CSS 내에서 SVG 를 사용할 수도 있습니다(16진수의 컬러값을 지정할 경우에는, `#` 에서 `%23` 과 같이 **문자에서 벗어날 할 필요**가 있습니다). `<svg>` 의 `width` 와 `height` 로 사이즈가 지정되어 있지 않은 경우, 아이콘은 이용 가능한 공간을 모두 채웁니다.
+또한, CSS 내에서 SVG를 사용할 수도 있습니다 (16진수의 컬러값을 지정할 경우에는, `#` 에서 `%23`과 같이 **문자에서 벗어날 할 필요**가 있습니다). `<svg>`의 `width`와 `height`로 사이즈가 지정되어 있지 않은 경우, 아이콘은 이용 가능한 공간을 모두 채웁니다.
 
-아이콘의 크기를 `background-size` 로 변경하려면, `viewBox` 속성이 필요합니다. `xmlns` 속성은 필수입니다.
+아이콘의 크기를 `background-size`로 변경하려면, `viewBox` 속성이 필요합니다. `xmlns` 속성은 필수입니다.
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -136,7 +136,7 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 {{< md >}}
 
 ## 스타일
-색상 변경은 `.text-*` 클래스나 커스텀 CSS 로 가능합니다:
+색상 변경은 `.text-*` 클래스나 커스텀 CSS로 가능합니다:
 {{< /md >}}
   </div>
   <div class="col-md-8">
@@ -204,7 +204,7 @@ Bootstrap 아이콘 SVG 를 임의의 디렉토리로 복사해 넣어, `<img>` 
 <div class="row my-4">
   <div class="col-md-4">
 {{< md >}}
-## Working with SVGs
+## SVG 작업
 SVG를 사용하는 것은 훌륭하지만, 몇 가지 기존의 문제들이 남아 있습니다. SVG의 사용방법이 몇 가지 있다는 점을 고려해 이 속성과 해결책을 코드에는 포함시키지 않았습니다.
 {{< /md >}}
   </div>
