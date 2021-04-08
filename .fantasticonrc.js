@@ -1,22 +1,24 @@
+const codepoints = require('./font/bootstrap-icons.json');
+
 module.exports = {
   inputDir: './icons', // (required)
   outputDir: './font', // (required)
-  fontTypes: ['woff', 'woff2'],
+  fontTypes: ['woff2', 'woff'],
   assetTypes: ['css', 'json', 'html'],
   name: 'bootstrap-icons',
+  codepoints: codepoints,
   prefix: 'bi',
   selector: '.bi',
   fontsUrl: './fonts',
   formatOptions: {
     json: {
-      // render the JSON human readable with two spaces indent (default is none, so minified)
       indent: 2
     }
   },
   // Use a custom Handlebars template
   templates: {
-    css: './src/css.hbs',
-    html: './src/html.hbs'
+    css: './build/font/css.hbs',
+    html: './build/font/html.hbs'
   },
   pathOptions: {
     json: './font/bootstrap-icons.json',

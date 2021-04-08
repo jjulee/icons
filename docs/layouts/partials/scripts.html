@@ -1,8 +1,9 @@
+<script src="/assets/js/bootstrap.min.js" async></script>
 {{- if .IsHome }}
 <script src="/assets/js/list.min.js"></script>
 <script>
   new List('icons-body', {
-    valueNames: ['name', { data: ['tags'] }]
+    valueNames: ['name', { data: ['tags', 'categories'] }]
   });
   document.getElementById('search').addEventListener('blur', (event) => {
     ga('send', 'event', 'Icon', 'filter', event.target.value)
